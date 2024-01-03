@@ -1,16 +1,11 @@
 import axios from 'axios';
 import * as dotenv from 'dotenv';
+import { ConversionResult } from '../interfaces/conversion'
 dotenv.config();
 
 const API_KEY = process.env.API_KEY || '';
 const API_BASE_URL = process.env.API_BASE_URL || '';
 
-export interface ConversionResult {
-    from: string;
-    to: string;
-    amount: number;
-    convertedAmount: number;
-}
 
 export class CurrencyService {
     public static async convertCurrency(from: string, to: string, amount: number): Promise<ConversionResult> {
