@@ -1,10 +1,10 @@
-// src/app/app.ts
+// src/app.ts
 import express from 'express';
+import { convertCurrency } from './controllers/currencyController';  // Update the import
 
 const app = express();
 
-app.get('/hi', (req, res) => {
-    res.send('Hello, this is the main route!');
-});
+// Define routes
+app.get('/convert/:from/:to/:amount', convertCurrency);
 
 export default app;
